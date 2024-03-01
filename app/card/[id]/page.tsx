@@ -28,7 +28,7 @@ export default async function DetailedCard({ searchParams }: {
                     </p>
                 </div>
                 <div className="text-center my-[30px] text-balance">
-                    <h3>Do you wanna see your card there? <Link href={'/cardSender'} className="text-[#2F4DE4] text-xl font-semibold"> Just click it</Link></h3>
+                    <h3>Do you wanna see your card there? <Link href={'/card-sender'} className="text-[#2F4DE4] text-xl font-semibold"> Just click it</Link></h3>
                 </div>
                 <DisqusComment card={inbox} id={id} />
             </div>

@@ -11,7 +11,6 @@ type FormValues = {
 
 
 export default function CardSender() {
-
     const {
         register,
         handleSubmit,
