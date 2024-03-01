@@ -6,6 +6,7 @@ export default function BurgerMenu({ setAction }: {
 }) {
     return (
         <>
+            <Link href={'/resources'} onClick={() => setAction(false)} className="flex items-center gap-[5px] text-[20px] md:text-[17px]">Mental Health Resources</Link>
             <Link href={'/about'} onClick={() => setAction(false)} className="text-[20px] md:text-[17px]">About Us
             </Link>
             <Link href={'/contact'} onClick={() => setAction(false)} className="flex items-center gap-[5px] text-[20px] md:text-[17px]">Contact Us
