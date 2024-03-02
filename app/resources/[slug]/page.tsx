@@ -19,15 +19,25 @@ export default async function DetailedBlog({ searchParams }: {
                     </div>
                 </div>
                 <div className="main">
-                    {parse(article.excerpt.html)}
                     {parse(article.article.html as string)}
                 </div>
                 <div className="author flex justify-between items-center">
-                    Written By:
-                    <div className="flex items-center gap-[5px]">
-                        <Image src={article.author.avatar.url} alt="avatar of author" width={50} height={50} className="rounded-[50%]" />
-                        <h2>{article.author.name}</h2>
-                    </div>
+                    {
+                        article.author.name && article.author.avatar.url ? (
+                            <>
+                                Written By:
+                                <div className="flex items-center gap-[5px]">
+                                    <Image src={article.author.avatar.url} alt="avatar of author" width={50} height={50} className="rounded-[50%]" />
+                                    <h2>{article.author.name}</h2>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <p>Written By:</p>
+                                <h2>Anonymous101</h2>
+                            </>
+                        )
+                    }
                 </div>
                 <div className="dark:text-yellow-200 text-[#2F4DE4] text-right font-bold">
                     <Date dateString={article.updatedAt} />

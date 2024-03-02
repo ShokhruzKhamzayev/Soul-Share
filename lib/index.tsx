@@ -90,9 +90,6 @@ export async function fetchDetailedArticle(slug: string) {
             article(where: {slug: "${slug}"}) {
                 id
                 title
-                excerpt {
-                    html
-                }
                 forSource {
                     html
                 }

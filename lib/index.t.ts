@@ -29,9 +29,9 @@ export interface article {
         html: string
     }
     author: {
-        name: string
+        name?: string
         avatar: {
-            url: string
+            url?: string
         }
     },
     image: {

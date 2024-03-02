@@ -18,8 +18,6 @@ export default function ResourcesPage() {
         const { articles }: any = await fetchArticles()
         setAllArticles(articles)
     }
-
-    console.log(allArticles)
     return (
         <div className='custom-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[20px] gap-y-[20px] md:gap-x-[30px] md:gap-y-[30px]'>
             {
@@ -31,7 +29,11 @@ export default function ResourcesPage() {
                         }
                     }} key={index} className="w-auto h-full flex flex-col gap-[20px] border dark:border-yellow-200 border-[#2F4DE4] p-[15px] lg:p-[30px] rounded-[15px]">
                         <div className="relative w-full h-[200px]">
-                            <CustomImage src={article.image.url} alt={article.title} />
+                            {
+                                article.image.url ? (
+                                    <CustomImage src={article.image.url} alt={article.title} />
+                                ) : ''
+                            }
                         </div>
                         <div className="text-center">
                             <h1 className="text-center text-xl md:text-2xl lg:text-3xl font-bold mb-[20px] dark:text-yellow-200 text-[#2F4DE4] line-clamp-2">{article.title}</h1>
