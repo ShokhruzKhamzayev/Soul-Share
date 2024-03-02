@@ -20,6 +20,7 @@ export interface DetailedProps {
 }
 
 interface article {
+    id: string,
     title: string,
     subHeader: string,
     source: string,
@@ -27,7 +28,10 @@ interface article {
         html: string
     }
     author: {
-        url: string
+        name: string
+        avatar: {
+            url: string
+        }
     },
     image: {
         url: string
@@ -37,6 +41,8 @@ interface article {
     article: {
         html: React.ReactNode
     }
+    message: "article of Mental Health Resources"
+    language: 'en_EN'
 }
 
 export interface ALlArticles {

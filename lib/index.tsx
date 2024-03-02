@@ -88,6 +88,7 @@ export async function fetchDetailedArticle(slug: string) {
     const query = gql`
         query MyQuery {
             article(where: {slug: "${slug}"}) {
+                id
                 title
                 subHeader
                 source
