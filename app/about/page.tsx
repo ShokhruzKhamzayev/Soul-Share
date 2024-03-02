@@ -19,9 +19,9 @@ export default function AboutUs() {
 }
 
 export const metadata: Metadata = {
-    title: 'About Page | Anonymous Cards',
-    description: 'About Page of anonymous cards, in this page we can introduce ourselves to our users, briefly all about us',
-    keywords: ['About us', 'about page', 'about page of Anonymous Cards', 'about Anon', 'about anonymous cards'],
+    title: 'About Page | Soul Share',
+    description: 'About Page of Soul Share, in this page we can introduce ourselves to our users, briefly all about us',
+    keywords: ['About us', 'about page', 'about page of Soul Share', 'about Anon', 'about Soul Share'],
     category: 'About Us'
 }
 

@@ -11,9 +11,9 @@ import { g_analytics } from "@/constants";
 const poppins = Poppins({ subsets: ["latin"], weight: ['400', '500', '600', '800'] });
 
 export const metadata: Metadata = {
-  title: "Anonymous Cards | Main",
-  description: "Anonymous cards, site that you can share a part of your life with others, you can make viral friends also high possibility to find reasonable advices here",
-  keywords: 'Anon, Anonymous, Anonymous Cards, anonymous cards, Anonymous cards, anon, share your life, see others life, about life, about future',
+  title: "Soul Share | Main",
+  description: "Soul Share, site that you can share a part of your life with others, you can make viral friends also high possibility to find reasonable advices here",
+  keywords: 'Anon, Anonymous, Soul Share, Soul Share, Soul Share, soul, share your life, see others life, about life, about future',
   authors: [{ name: 'Shokhrux', url: 'https://nextjs.org' }, { name: 'Jamshidbek' }],
   category: 'Sharing is Caring, sharing, cards, advices',
   publisher: 'Shokhruz',
