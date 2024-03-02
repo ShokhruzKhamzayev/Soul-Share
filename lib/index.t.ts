@@ -19,7 +19,7 @@ export interface DetailedProps {
     inbox: detailedCard
 }
 
-interface article {
+export interface article {
     id: string,
     title: string,
     excerpt: {

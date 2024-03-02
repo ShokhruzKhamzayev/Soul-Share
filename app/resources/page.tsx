@@ -1,15 +1,29 @@
+'use client'
 import CustomImage from "@/components/customImage"
 import Date from "@/components/dateShow";
 import { fetchArticles } from "@/lib"
+import { article } from "@/lib/index.t";
 import parse from 'html-react-parser';
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-export default async function ResourcesPage() {
-    const { articles } = await fetchArticles()
+export default function ResourcesPage() {
+    const [allArticles, setAllArticles] = useState<article[]>([])
+
+    useEffect(() => {
+        getAllArticles()
+    }, [])
+
+    async function getAllArticles() {
+        const { articles }: any = await fetchArticles()
+        setAllArticles(articles)
+    }
+
+    console.log(allArticles)
     return (
-        <div className='custom-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+        <div className='custom-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[20px] gap-y-[20px] md:gap-x-[30px] md:gap-y-[30px]'>
             {
-                articles.map((article, index) => (
+                allArticles.map((article, index) => (
                     <Link href={{
                         pathname: `/resources/${article.slug}`,
                         query: {
@@ -25,7 +39,7 @@ export default async function ResourcesPage() {
                                 {parse(article.excerpt.html as string)}
                             </div>
                             <div className="mt-[20px] text-right dark:text-yellow-200 text-[#2F4DE4] font-bold">
-                                <Date dateString={article.updatedAt}/>
+                                <Date dateString={article.updatedAt} />
                             </div>
                         </div>
                     </Link>
