@@ -23,6 +23,9 @@ interface article {
     title: string,
     subHeader: string,
     source: string,
+    excerpt: {
+        html: string
+    }
     author: {
         url: string
     },
@@ -38,4 +41,8 @@ interface article {
 
 export interface ALlArticles {
     articles: article[]
+}
+
+export interface singleArticle {
+    article: article
 }

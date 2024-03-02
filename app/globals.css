@@ -79,7 +79,10 @@ nav a::before {
   left: 50%;
   transform: translateX(-50%);
   transition: all .5s ease;
+
+  @apply dark:bg-yellow-200
 }
+
 
 nav a:hover::before {
   width: 100%;

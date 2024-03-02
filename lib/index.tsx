@@ -1,5 +1,5 @@
 import { GraphQLClient, gql } from 'graphql-request'
-import { ALlArticles, DetailedProps, LangDataProps } from './index.t'
+import { ALlArticles, DetailedProps, LangDataProps, singleArticle } from './index.t'
 import { Hygraph_endpoint } from '@/constants'
 
 export const graphlqlClient = new GraphQLClient(Hygraph_endpoint)
@@ -68,8 +68,32 @@ export async function fetchArticles() {
         query MyQuery {
             articles(orderBy: publishedAt_ASC, first: 100000000000000) {
                 title
+                excerpt {
+                    html
+                }
+                image {
+                url
+                }
+                slug
+                updatedAt
+            }
+        }
+    `
+
+    const articlesData = await graphlqlClient.request<ALlArticles>(query)
+    return articlesData
+}
+
+export async function fetchDetailedArticle(slug: string) {
+    const query = gql`
+        query MyQuery {
+            article(where: {slug: "${slug}"}) {
+                title
                 subHeader
                 source
+                excerpt {
+                    html
+                }
                 author {
                 name
                 avatar {
@@ -88,6 +112,6 @@ export async function fetchArticles() {
         }
     `
 
-    const articlesData = await graphlqlClient.request<ALlArticles>(query)
-    return articlesData
+    const detailedArticle = await graphlqlClient.request<singleArticle>(query)
+    return detailedArticle
 }
