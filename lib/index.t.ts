@@ -22,9 +22,10 @@ export interface DetailedProps {
 interface article {
     id: string,
     title: string,
-    subHeader: string,
-    source: string,
     excerpt: {
+        html: string
+    },
+    forSource: {
         html: string
     }
     author: {

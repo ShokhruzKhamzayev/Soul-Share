@@ -10,21 +10,21 @@ export default async function DetailedBlog({ searchParams }: {
     const { article } = await fetchDetailedArticle(slug)
     return (
         <div className="custom-container">
-            <div className="flex flex-col gap-[50px] mt-[50px]">
+            <div className="flex flex-col gap-[50px] mt-[40px]">
                 <div className="starter">
                     <h1 className="text-center text-2xl md:text-4xl lg:text-5xl text-balance dark:text-yellow-200 text-[#2F4DE4]">{article.title}</h1>
-                    <div className="my-[20px] text-xl font-bold">
-                        {parse(article.excerpt.html)}
+                    <div className="my-[20px] text-xl font-semibold text-center dark:text-yellow-200 text-[#2F4DE4]">
+                        {parse(article.forSource.html)}
                     </div>
-                    <a target="_blank" href={article.source} className="flex justify-end items-end text-[20px] dark:text-yellow-200 text-[#2F4DE4]">The source</a>
                 </div>
                 <div className="main">
+                    {parse(article.excerpt.html)}
                     {parse(article.article.html as string)}
                 </div>
                 <div className="author flex justify-between items-center">
                     Written By:
                     <div className="flex items-center gap-[5px]">
-                        <Image src={article.author.avatar.url} alt="avatar of author" width={50} height={50} className="rounded-[50%]"/>
+                        <Image src={article.author.avatar.url} alt="avatar of author" width={50} height={50} className="rounded-[50%]" />
                         <h2>{article.author.name}</h2>
                     </div>
                 </div>

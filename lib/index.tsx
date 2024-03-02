@@ -90,9 +90,10 @@ export async function fetchDetailedArticle(slug: string) {
             article(where: {slug: "${slug}"}) {
                 id
                 title
-                subHeader
-                source
                 excerpt {
+                    html
+                }
+                forSource {
                     html
                 }
                 author {
