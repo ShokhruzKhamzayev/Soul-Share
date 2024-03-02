@@ -1,5 +1,5 @@
 import { GraphQLClient, gql } from 'graphql-request'
-import { DetailedProps, LangDataProps } from './index.t'
+import { ALlArticles, DetailedProps, LangDataProps } from './index.t'
 import { Hygraph_endpoint } from '@/constants'
 
 export const graphlqlClient = new GraphQLClient(Hygraph_endpoint)
@@ -61,4 +61,33 @@ export async function fetchLastCards() {
 
     const latestCards = await graphlqlClient.request<LangDataProps>(query)
     return latestCards
+}
+
+export async function fetchArticles() {
+    const query = gql`
+        query MyQuery {
+            articles(orderBy: publishedAt_ASC, first: 100000000000000) {
+                title
+                subHeader
+                source
+                author {
+                name
+                avatar {
+                    url
+                }
+                }
+                image {
+                url
+                }
+                slug
+                updatedAt
+                article {
+                html
+                }
+            }
+        }
+    `
+
+    const articlesData = await graphlqlClient.request<ALlArticles>(query)
+    return articlesData
 }

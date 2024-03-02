@@ -18,3 +18,24 @@ export interface LangDataProps {
 export interface DetailedProps {
     inbox: detailedCard
 }
+
+interface article {
+    title: string,
+    subHeader: string,
+    source: string,
+    author: {
+        url: string
+    },
+    image: {
+        url: string
+    },
+    slug: string,
+    updatedAt: string,
+    article: {
+        html: React.ReactNode
+    }
+}
+
+export interface ALlArticles {
+    articles: article[]
+}
