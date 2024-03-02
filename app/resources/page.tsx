@@ -20,7 +20,7 @@ export default async function ResourcesPage() {
                             <CustomImage src={article.image.url} alt={article.title} />
                         </div>
                         <div className="text-center">
-                            <h1 className="text-center text-xl md:text-2xl lg:text-3xl font-bold mb-[20px] dark:text-yellow-200 text-[#2F4DE4]">{article.title}</h1>
+                            <h1 className="text-center text-xl md:text-2xl lg:text-3xl font-bold mb-[20px] dark:text-yellow-200 text-[#2F4DE4] line-clamp-2">{article.title}</h1>
                             <div className="tracking-wide font-medium line-clamp-4">
                                 {parse(article.excerpt.html as string)}
                             </div>

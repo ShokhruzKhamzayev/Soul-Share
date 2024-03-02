@@ -1,3 +1,4 @@
+import Date from "@/components/dateShow";
 import DisqusComment from "@/components/disqus-comments";
 import { fetchDetailedArticle } from "@/lib"
 import parse from 'html-react-parser';
@@ -27,6 +28,9 @@ export default async function DetailedBlog({ searchParams }: {
                         <Image src={article.author.avatar.url} alt="avatar of author" width={50} height={50} className="rounded-[50%]" />
                         <h2>{article.author.name}</h2>
                     </div>
+                </div>
+                <div className="dark:text-yellow-200 text-[#2F4DE4] text-right font-bold">
+                    <Date dateString={article.updatedAt} />
                 </div>
             </div>
             <div className="mt-[40px]">
