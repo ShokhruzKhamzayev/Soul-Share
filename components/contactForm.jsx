@@ -39,7 +39,7 @@ export const ContactForm = () => {
                 <span className='text-md font-semibold pl-[5px]'>Message*</span>
                 <textarea name="message" className='w-full bg-transparent outline-none border-[3px] border-[#D9D9D9] rounded-[15px] py-[5px] px-[15px] min-h-[200px]' required />
             </label>
-            <button className='flex justify-center items-center gap-[7px] w-[60%] mx-auto dark:bg-[#D9D9D9] py-[10px] rounded-[15px] dark:text-black bg-[#2F4DE4] text-white'>
+            <button className='flex justify-center items-center gap-[7px] w-[60%] mx-auto dark:bg-yellow-200 py-[10px] rounded-[15px] dark:text-black bg-[#2F4DE4] text-white'>
                 Send
                 <FaRightLong />
             </button>
