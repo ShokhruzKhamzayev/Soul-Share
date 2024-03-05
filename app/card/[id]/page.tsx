@@ -2,7 +2,7 @@ import Date from "@/components/dateShow"
 import DisqusComment from "@/components/disqus-comments"
 import { fetchDetailedCard, fetchLastCards } from "@/lib"
 import Link from "next/link"
-import { BiChevronRight, BiUser } from "react-icons/bi"
+import { BiChevronLeft, BiChevronRight, BiUser } from "react-icons/bi"
 
 export default async function DetailedCard({ searchParams }: {
     searchParams: {
@@ -26,6 +26,12 @@ export default async function DetailedCard({ searchParams }: {
                     <p className='text-gray-200 text-[17px] mt-[20px] text-right'>
                         <Date dateString={inbox.updatedAt} />
                     </p>
+                </div>
+                <div className="mt-[25px]">
+                    <Link href={'/'} className="flex items-center gap-[7px] justify-center underline hover:dark:text-yellow-200 hover:text-[#2F4DE4] w-fit mx-auto transition-all duration-300">
+                        <BiChevronLeft size={32} />
+                        Back to Main Page
+                    </Link>
                 </div>
                 <div className="text-center my-[30px] text-balance">
                     <h3>Do you wanna see your card there? <Link href={'/card-sender'} className="text-[#2F4DE4] dark:text-yellow-200 text-xl font-semibold"> Just click it</Link></h3>

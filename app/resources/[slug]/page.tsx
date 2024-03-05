@@ -3,6 +3,8 @@ import DisqusComment from "@/components/disqus-comments";
 import { fetchDetailedArticle } from "@/lib"
 import parse from 'html-react-parser';
 import Image from "next/image";
+import Link from "next/link";
+import { BiChevronLeft } from "react-icons/bi";
 
 export default async function DetailedBlog({ searchParams }: {
     searchParams: { slug: string }
@@ -38,6 +40,12 @@ export default async function DetailedBlog({ searchParams }: {
                             </>
                         )
                     }
+                </div>
+                <div>
+                    <Link href={'/resources'} className="flex items-center gap-[7px] justify-center underline hover:dark:text-yellow-200 hover:text-[#2F4DE4] w-fit mx-auto transition-all duration-300">
+                        <BiChevronLeft size={32} />
+                        Back to Mental Health Resources
+                    </Link>
                 </div>
                 <div className="dark:text-yellow-200 text-[#2F4DE4] text-right font-bold">
                     <Date dateString={article.updatedAt} />
