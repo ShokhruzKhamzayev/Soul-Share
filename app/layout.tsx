@@ -35,6 +35,10 @@ export default function RootLayout({
 
         gtag('config', '${g_analytics}');
       `}</Script>
+      <head>
+        <meta name="yandex-verification" content="3374da3e0a5976b9" />
+        <meta name="google-site-verification" content="4Hu-5IwRuj911S7m7LAYDh4npv1BnRkb4U2UPBGYaTg" />
+      </head>
       <body className={`${poppins.className} bg-[#F2F3FD] dark:bg-[#02030D] text-[#040720] dark:text-[#DFE2FB]`}>
         <Provider>
           <Header />
