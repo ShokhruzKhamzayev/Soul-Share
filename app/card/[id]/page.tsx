@@ -1,16 +1,31 @@
 import Date from "@/components/dateShow"
 import DisqusComment from "@/components/disqus-comments"
 import { fetchDetailedCard, fetchLastCards } from "@/lib"
+import { DetailedProps } from "@/lib/index.t"
+import { Metadata } from "next"
 import Link from "next/link"
 import { BiChevronLeft, BiChevronRight, BiUser } from "react-icons/bi"
 
-export default async function DetailedCard({ searchParams }: {
-    searchParams: {
-        id: string
-    }
-}) {
-    const { id } = searchParams
+export async function getDetailedCard(id: string) {
     const inbox = await fetchDetailedCard(id)
+    return inbox
+
+}
+
+export async function generateMetadata({ searchParams }: { searchParams: { id: string } }) {
+    const { id } = searchParams
+    const inbox = await getDetailedCard(id)
+    const title = inbox.message
+    const description = inbox.message
+    return {
+        title: title,
+        description: description
+    }
+}
+
+export default async function DetailedCard({ searchParams }: { searchParams: { id: string } }) {
+    const { id } = searchParams
+    const inbox = await getDetailedCard(id)
     const { inboxes } = await fetchLastCards()
     return (
         <div className="custom-container flex justify-between">

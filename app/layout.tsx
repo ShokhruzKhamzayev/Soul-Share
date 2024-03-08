@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Shokhrux', url: 'https://nextjs.org' }, { name: 'Jamshidbek' }],
   category: 'Sharing is Caring, sharing, cards, advices',
   publisher: 'Shokhruz',
-  creator: 'Shokhruz'
+  creator: 'Shokhruz'  
 };
 
 export default function RootLayout({
