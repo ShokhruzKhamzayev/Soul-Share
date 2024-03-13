@@ -4,7 +4,7 @@ import { Hygraph_endpoint } from '@/constants'
 
 export const graphlqlClient = new GraphQLClient(Hygraph_endpoint)
 
-export async function fetchCardWithLang(lang: string, isAll: boolean) {
+export async function fetchCardWithLang(lang?: string, isAll?: boolean) {
     const query = gql`
         query MyQuery {
             inboxes (orderBy: updatedAt_DESC, where: {${isAll ? `documentInStages_some: {stage: PUBLISHED}` : `language: ${lang}`}} first: 100000000000000000) {
@@ -113,4 +113,18 @@ export async function fetchDetailedArticle(slug: string) {
 
     const detailedArticle = await graphlqlClient.request<singleArticle>(query)
     return detailedArticle
+}
+
+export async function fetchCardWithLangForSitemap() {
+    const query = gql`
+        query MyQuery {
+            inboxes (orderBy: updatedAt_DESC, where: {documentInStages_some: {stage: PUBLISHED}} first: 100000000000000000) {
+                id
+                updatedAt
+            }
+        }
+    `
+
+    const langData = await graphlqlClient.request<LangDataProps>(query)
+    return langData
 }
