@@ -4,7 +4,7 @@ import Image, { StaticImageData } from "next/image"
 import { useState } from "react"
 
 export default function CustomImage({ src, alt }: {
-    src: StaticImageData,
+    src: any,
     alt: string
 }) {
     const [loading, setLoading] = useState(true)
