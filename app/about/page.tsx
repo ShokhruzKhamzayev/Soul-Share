@@ -1,6 +1,6 @@
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import React from 'react'
-import about_content from '../../assets/aboutContent.png'
+import about_content from '../../assets/about.png'
 import { Metadata } from 'next'
 import ceo from '../../assets/director.png'
 import programmer from '../../assets/programmer.png'
@@ -14,8 +14,8 @@ export default function AboutUs() {
                 <p className='tracking-wide font-medium'>&quot;As an overthinker, I think about any thought for hours, leading me to depression or more. I am very curious and want to know every detailed information as I get interested. Thus, I listen to people a lot but never trust others when it comes to sharing my own thoughts. One day, again sitting and thinking about my private overthinking thoughts, I realized that I keep too much in me, so I started searching for online places where I could share my &quot;things&quot; with strangers I would never see again. However, I could find no place for my exact purpose - to confess my feelings to strangers. At that moment, I thought that there were definitely some people who felt the same way as me, and they needed - we need - a place where we could freely express our private, untrusted-to acquaintances, and harm our mental health thoughts. Keeping too much harms our mental/psychological state, and pouring things out would heal us. Ultimately, I decided to create this project where you can share your thoughts that keep torturing your mind anonymously, along with reading other people's confessions. No one knows anyone – Share your soul, learn from the experiences of others, help, get help, and free your soul to keep your mental health good.&quot;</p>
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-2 my-[30px] gap-x-[40px] gap-y-[40px]'>
-                <AboutPreview data='We all carry unseen weights: secrets, confessions, and thoughts too heavy to bear alone. Sharing feels risky, vulnerability exposes us. But bottling things up hurts. Here, in this anonymous sanctuary, you can confess freely, with no judgment, no names.' subheader='Unburden your soul, share anonymously.' />
-                <AboutPreview data='Release your story. Connect with others through shared experiences, unburdened by the weight of identity. Find understanding, empathy, and perhaps even a sense of belonging among strangers who truly hear you. Confess. Read. Connect.' subheader='Let go of burdens' />
+                <AboutPreview src={about_content} data='We all carry unseen weights: secrets, confessions, and thoughts too heavy to bear alone. Sharing feels risky, vulnerability exposes us. But bottling things up hurts. Here, in this anonymous sanctuary, you can confess freely, with no judgment, no names.' subheader='Unburden your soul, share anonymously.' />
+                <AboutPreview src={about_content} data='Release your story. Connect with others through shared experiences, unburdened by the weight of identity. Find understanding, empathy, and perhaps even a sense of belonging among strangers who truly hear you. Confess. Read. Connect.' subheader='Let go of burdens' />
             </div>
             <div>
                 <h1 className='dark:text-yellow-200 text-[#2F4DE4] text-3xl md:text-5xl text-center mb-[25px] mt-[15px] font-bold'>Authors</h1>
@@ -35,13 +35,14 @@ export const metadata: Metadata = {
     category: 'About Us'
 }
 
-function AboutPreview({ data, subheader }: {
+function AboutPreview({ data, subheader, src }: {
     data: string,
-    subheader: string
+    subheader: string,
+    src: StaticImageData
 }) {
     return (
         <div className={`flex items-center flex-col text-center gap-[25px]`}>
-            <Image src={about_content} alt='about content' className='w-full' />
+            <Image src={src} alt='about content' className='w-full rounded-[30px] border-[2px]' />
             <div className='w-full flex flex-col gap-[20px]'>
                 <h1 className="text-[25px] md:text-[35px] font-semibold dark:text-yellow-200 text-[#2F4DE4]">{subheader}</h1>
                 <p className="text-[18px] leading-loose">{data}</p>

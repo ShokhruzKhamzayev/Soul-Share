@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import hero_content from '../assets/banner.png'
+import hero_content from '../assets/main.png'
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { fetchCardWithLang } from "@/lib";
@@ -8,6 +8,7 @@ import Loader from "./loader";
 import { CardType } from "@/lib/index.t";
 import EmptyAnim from "./emptyBox";
 import PaginationCard from "./paginationCard";
+import CustomImage from "./customImage";
 
 export default function Hero({ lang, isAll, setItemOffset, itemOffset }: {
     lang: string,
@@ -48,8 +49,8 @@ export default function Hero({ lang, isAll, setItemOffset, itemOffset }: {
                 loading ? (<Loader />) : (
                     <>
                         <div className="flex justify-between items-center flex-col lg:flex-row mt-[50px] gap-[20px] lg:gap-0">
-                            <Image src={hero_content} alt="content hero" className="w-full lg:w-[45%]" priority={true} />
-                            <div className="w-full lg:w-[45%] flex flex-col gap-[15px] text-center lg:text-left">
+                            <Image src={hero_content} alt="content hero" className="w-full lg:w-[48%] rounded-[20px] border-[2px]" priority={true} />
+                            <div className="w-full lg:w-[48%] flex flex-col gap-[15px] text-center lg:text-left">
                                 <h1 className="text-[25px] md:text-[35px] font-semibold ">Soul Share</h1>
                                 <span className="text-[16px] dark:text-yellow-200 text-[#2F4DE4]">Non-profit organization</span>
                                 <p className="text-[18px] leading-loose">

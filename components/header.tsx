@@ -5,6 +5,9 @@ import ThemeSwitcher from "./ThemeSwitcher";
 import BurgerMenu from "./burgerMenu";
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
+import Image from "next/image";
+import logo_light from '../assets/blue logo.png'
+import logo_dark from '../assets/blvck logo.png'
 
 export default function Header() {
     const [action, setAction] = useState(false)
@@ -13,7 +16,7 @@ export default function Header() {
             <div className="custom-container flex justify-between items-center py-[25px]">
                 <div className="logo">
                     <Link href={'/'}>
-                        <h1 className="font-semibold text-[23px] md:text-[32px]">Soul Share</h1>
+                        <Image src={logo_light} className="max-w-[200px]" alt="Soulshare" />
                     </Link>
                 </div>
                 <div className="pages-theme flex items-center gap-[10px] md:gap-[40px]">
@@ -26,7 +29,7 @@ export default function Header() {
                     </button>
                 </div>
             </div>
-            <div className={`nav-phone block md:hidden ${action ? 'active' : 'disactive'} bg-[#F2F3FD] dark:bg-[#02030D]`}>
+            <div className={`nav-phone block md:hidden ${action ? 'active' : 'disactive'} bg-transparent backdrop-blur-2xl backdrop-brightness-100`}>
                 <button className="closer" onClick={() => setAction(false)}>
                     <IoMdClose size={35} />
                 </button>
