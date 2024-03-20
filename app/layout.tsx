@@ -7,6 +7,7 @@ import { Bounce, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Script from "next/script";
 import { g_analytics } from "@/constants";
+import NextTopLoader from "nextjs-toploader";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ['400', '500', '600', '800'] });
 
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Shokhrux', url: 'https://nextjs.org' }, { name: 'Jamshidbek' }],
   category: 'Sharing is Caring, sharing, cards, advices',
   publisher: 'Shokhruz',
-  creator: 'Shokhruz'  
+  creator: 'Shokhruz'
 };
 
 export default function RootLayout({
@@ -41,6 +42,7 @@ export default function RootLayout({
       </head>
       <body className={`${poppins.className} bg-[#F2F3FD] dark:bg-[#02030D] text-[#040720] dark:text-[#DFE2FB]`}>
         <Provider>
+          <NextTopLoader color="#2F4DE4" showSpinner={false} />
           <Header />
           <main>
             <ToastContainer

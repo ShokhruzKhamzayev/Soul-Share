@@ -6,8 +6,7 @@ import BurgerMenu from "./burgerMenu";
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import Image from "next/image";
-import logo_light from '../assets/blue logo.png'
-import logo_dark from '../assets/blvck logo.png'
+import logo_light from '../assets/logo.png'
 
 export default function Header() {
     const [action, setAction] = useState(false)

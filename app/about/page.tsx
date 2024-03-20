@@ -5,6 +5,7 @@ import { Metadata } from 'next'
 import ceo from '../../assets/director.png'
 import programmer from '../../assets/programmer.png'
 
+
 export default function AboutUs() {
     return (
         <div className='custom-container pt-[25px]'>
@@ -42,7 +43,7 @@ function AboutPreview({ data, subheader, src }: {
 }) {
     return (
         <div className={`flex items-center flex-col text-center gap-[25px]`}>
-            <Image src={src} alt='about content' className='w-full rounded-[30px] border-[2px]' />
+            <Image src={src} alt='about content' className='w-full rounded-[30px] border-[2px] border-[#2F4DE4] dark:border-yellow-200' />
             <div className='w-full flex flex-col gap-[20px]'>
                 <h1 className="text-[25px] md:text-[35px] font-semibold dark:text-yellow-200 text-[#2F4DE4]">{subheader}</h1>
                 <p className="text-[18px] leading-loose">{data}</p>

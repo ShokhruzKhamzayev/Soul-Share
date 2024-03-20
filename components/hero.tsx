@@ -49,7 +49,7 @@ export default function Hero({ lang, isAll, setItemOffset, itemOffset }: {
                 loading ? (<Loader />) : (
                     <>
                         <div className="flex justify-between items-center flex-col lg:flex-row mt-[50px] gap-[20px] lg:gap-0">
-                            <Image src={hero_content} alt="content hero" className="w-full lg:w-[48%] rounded-[20px] border-[2px]" priority={true} />
+                            <Image src={hero_content} alt="content hero" className="w-full lg:w-[48%] rounded-[20px] border-[2px] border-[#2F4DE4] dark:border-yellow-200" priority={true} />
                             <div className="w-full lg:w-[48%] flex flex-col gap-[15px] text-center lg:text-left">
                                 <h1 className="text-[25px] md:text-[35px] font-semibold ">Soul Share</h1>
                                 <span className="text-[16px] dark:text-yellow-200 text-[#2F4DE4]">Non-profit organization</span>

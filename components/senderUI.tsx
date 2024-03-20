@@ -14,7 +14,7 @@ export default function SenderUI({ isItForEmail }: {
 
                 <Image src={
                     isItForEmail ? contact_content : sender_content
-                } alt="preview contact" className="max-h-[600px] rounded-[25px] border-[3px]" />
+                } alt="preview contact" className="max-h-[600px] rounded-[25px] border-[3px] border-[#2F4DE4] dark:border-yellow-200" />
             </div>
             <div className="w-full lg:w-[45%] text-center min-h-[80vh] lg:min-h-0 ">
                 {
