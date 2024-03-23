@@ -20,7 +20,7 @@ export default async function DetailedBlog({ searchParams }: {
                         {parse(article.forSource.html)}
                     </div>
                 </div>
-                <div className="main">
+                <div className="main article-page">
                     {parse(article.article.html as string)}
                 </div>
                 <div className="author flex justify-between items-center">
