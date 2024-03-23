@@ -16,12 +16,18 @@ export default function CardSender() {
         handleSubmit,
         reset
     } = useForm<FormValues>()
-    const onSubmit = handleSubmit((data) => getMessage(data.message))
-
-    async function getMessage(message: any) {
-        const sendMessage = await sendingCardData(message)
+    const onSubmit = handleSubmit((data) => {
+        getMessage(removeLineBreaks(data.message))
         reset()
+    })
+
+    async function getMessage(message: string) {
+        const sendMessage = await sendingCardData(message)
         toast.success('Message has been sent')
+    }
+
+    function removeLineBreaks(inputText: string) {
+        return inputText.replace(/(\r\n|\n|\r)/gm, " ");
     }
 
     return (
