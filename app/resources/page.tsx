@@ -19,7 +19,7 @@ export default function ResourcesPage() {
         setAllArticles(articles)
     }
     return (
-        <div className='custom-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[20px] gap-y-[20px] md:gap-x-[30px] md:gap-y-[30px]'>
+        <div className='custom-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[20px] gap-y-[20px] md:gap-x-[30px] md:gap-y-[30px] pb-[23px]'>
             {
                 allArticles.map((article, index) => (
                     <Link href={{
