@@ -17,7 +17,7 @@ export default async function DetailedBlog({ searchParams }: {
                 <div className="starter">
                     <h1 className="text-center text-2xl md:text-4xl lg:text-5xl text-balance dark:text-yellow-200 text-[#2F4DE4]">{article.title}</h1>
                     <div className="my-[20px] text-xl font-semibold text-center dark:text-yellow-200 text-[#2F4DE4]">
-                        {parse(article.forSource.html)}
+                        {parse(article?.forSource?.html)}
                     </div>
                 </div>
                 <div className="main article-page">
@@ -48,11 +48,11 @@ export default async function DetailedBlog({ searchParams }: {
                     </Link>
                 </div>
                 <div className="dark:text-yellow-200 text-[#2F4DE4] text-right font-bold">
-                    <Date dateString={article.updatedAt} />
+                    <Date dateString={article?.updatedAt} />
                 </div>
             </div>
             <div className="mt-[40px]">
-                <DisqusComment card={article} id={article.id} />
+                <DisqusComment card={article} id={article?.id} />
             </div>
         </div>
     )
