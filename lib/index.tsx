@@ -66,7 +66,7 @@ export async function fetchLastCards() {
 export async function fetchArticles() {
     const query = gql`
         query MyQuery {
-            articles(orderBy: publishedAt_ASC, first: 100000000000000) {
+            articles(orderBy: publishedAt_DESC, first: 100000000000000) {
                 title
                 excerpt {
                     html

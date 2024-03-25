@@ -6,6 +6,9 @@ import { article } from "@/lib/index.t";
 import parse from 'html-react-parser';
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Oswald, Montserrat } from "next/font/google";
+
+export const oswald = Oswald({ subsets: ["latin"], weight: ['400', '500', '600'] })
 
 export default function ResourcesPage() {
     const [allArticles, setAllArticles] = useState<article[]>([])
@@ -19,7 +22,7 @@ export default function ResourcesPage() {
         setAllArticles(articles)
     }
     return (
-        <div className='custom-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[20px] gap-y-[20px] md:gap-x-[30px] md:gap-y-[30px] pb-[23px]'>
+        <div className='custom-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[20px] gap-y-[20px] md:gap-x-[30px] md:gap-y-[30px] py-[23px]'>
             {
                 allArticles.map((article, index) => (
                     <Link href={{
@@ -36,7 +39,7 @@ export default function ResourcesPage() {
                             }
                         </div>
                         <div className="text-center">
-                            <h1 className="text-center text-xl md:text-2xl lg:text-3xl font-bold mb-[20px] dark:text-yellow-200 text-[#2F4DE4] line-clamp-2">{article?.title}</h1>
+                            <h1 className={`text-center text-xl md:text-2xl lg:text-3xl font-bold mb-[20px] dark:text-yellow-200 text-[#2F4DE4] line-clamp-2 ${oswald.className}`}>{article?.title}</h1>
                             <div className="tracking-wide font-medium line-clamp-4">
                                 {parse(article?.excerpt?.html as string)}
                             </div>

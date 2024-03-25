@@ -156,3 +156,6 @@ nav a:hover::before {
   @apply h-[300px] md:h-[400px] lg:h-[500px] w-full rounded-[20px]
 }
 
+.article-page h1 {
+  @apply text-[32px] text-balance border-b border-[#2F4DE4] dark:border-yellow-200 text-[#2F4DE4] dark:text-yellow-200 text-center font-semibold
+}

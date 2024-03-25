@@ -5,6 +5,10 @@ import parse from 'html-react-parser';
 import Image from "next/image";
 import Link from "next/link";
 import { BiChevronLeft } from "react-icons/bi";
+import { Montserrat, Oswald } from "next/font/google";
+
+const oswald = Oswald({ subsets: ["latin"], weight: ['600', '700'] })
+const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '600'] })
 
 export default async function DetailedBlog({ searchParams }: {
     searchParams: { slug: string }
@@ -12,15 +16,15 @@ export default async function DetailedBlog({ searchParams }: {
     const { slug } = searchParams
     const { article } = await fetchDetailedArticle(slug)
     return (
-        <div className="custom-container">
+        <div className="w-[90%] lg:max-w-[900px] mx-auto">
             <div className="flex flex-col gap-[50px] mt-[40px]">
                 <div className="starter">
-                    <h1 className="text-center text-2xl md:text-4xl lg:text-5xl text-balance dark:text-yellow-200 text-[#2F4DE4]">{article.title}</h1>
+                    <h1 className={`text-center text-2xl md:text-4xl lg:text-5xl text-balance dark:text-yellow-200 text-[#2F4DE4] ${oswald.className}`}>{article.title}</h1>
                     <div className="my-[20px] text-xl font-semibold text-center dark:text-yellow-200 text-[#2F4DE4]">
                         {parse(article?.forSource?.html)}
                     </div>
                 </div>
-                <div className="main article-page">
+                <div className={`main article-page font-medium text-[17px]`}>
                     {parse(article.article.html as string)}
                 </div>
                 <div className="author flex justify-between items-center">
