@@ -28,7 +28,7 @@ export default function Header() {
                     </button>
                 </div>
             </div>
-            <div className={`nav-phone block md:hidden ${action ? 'active' : 'disactive'} bg-transparent backdrop-blur-2xl backdrop-brightness-100`}>
+            <div className={`nav-phone block md:hidden ${action ? 'active' : 'disactive'} bg-[#F2F3FD] dark:bg-[#02030D]`}>
                 <button className="closer" onClick={() => setAction(false)}>
                     <IoMdClose size={35} />
                 </button>
