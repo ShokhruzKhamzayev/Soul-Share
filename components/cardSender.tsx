@@ -23,7 +23,7 @@ export default function CardSender() {
 
     async function getMessage(message: string) {
         const sendMessage = await sendingCardData(message)
-        toast.success('Message has been sent')
+        toast.success('The message has been sent for review')
     }
 
     function removeLineBreaks(inputText: string) {
