@@ -8,7 +8,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const { articles } = await fetchArticles()
     const inboxesSitemap: MetadataRoute.Sitemap = inboxes.map((card) => {
         return {
-            url: `${baseUrl}/card/${card.id}?id=${card.id}`,
+            url: `${baseUrl}/card/${card.id}`,
             lastModified: new Date(card.updatedAt),
             priority: 1,
             changeFrequency: 'monthly'
@@ -16,7 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
     const articlesSitemap: MetadataRoute.Sitemap = articles.map((article) => {
         return {
-            url: `${baseUrl}/resources/${article.slug}?slug=${article.slug}`,
+            url: `${baseUrl}/resources/${article.slug}`,
             changeFrequency: 'monthly',
             lastModified: new Date(article.updatedAt),
             priority: 1

@@ -10,10 +10,9 @@ import { Montserrat, Oswald } from "next/font/google";
 const oswald = Oswald({ subsets: ["latin"], weight: ['600', '700'] })
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '600'] })
 
-export default async function DetailedBlog({ searchParams }: {
-    searchParams: { slug: string }
+export default async function DetailedBlog({ params: { slug } }: {
+    params: { slug: string }
 }) {
-    const { slug } = searchParams
     const { article } = await fetchDetailedArticle(slug)
     return (
         <div className="w-[90%] lg:max-w-[900px] mx-auto">
