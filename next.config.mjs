@@ -3,11 +3,13 @@ const nextConfig = {
     eslint: {
         ignoreDuringBuilds: true
     },
-    experimental: {
-        missingSuspenseWithCSRBailout: false
-    },
     images: {
-        domains: ["media.graphassets.com"]
+        remotePatterns: [
+            {
+                protocol: 'http',
+                hostname: 'media.graphassets.com'
+            }
+        ]
     }
 };
 

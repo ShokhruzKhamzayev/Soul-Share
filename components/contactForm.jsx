@@ -2,8 +2,8 @@
 
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import { toast } from 'react-toastify';
 import { FaRightLong } from 'react-icons/fa6';
+import { toast } from 'sonner';
 
 export const ContactForm = () => {
     const form = useRef();

@@ -24,13 +24,8 @@ export default function ResourcesPage() {
     return (
         <div className='custom-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[20px] gap-y-[20px] md:gap-x-[30px] md:gap-y-[30px] py-[23px]'>
             {
-                allArticles.map((article, index) => (
-                    <Link href={{
-                        pathname: `/resources/${article.slug}`,
-                        query: {
-                            slug: article.slug
-                        }
-                    }} key={index} className="w-auto h-full gap-[20px] border dark:border-yellow-200 border-[#2F4DE4] p-[15px] lg:p-[30px] rounded-[15px] flex flex-col justify-between">
+                allArticles.map((article) => (
+                    <Link href={`/resources/${article.slug}`} key={article.slug} className="w-auto h-full gap-[20px] border dark:border-yellow-200 border-[#2F4DE4] p-[15px] lg:p-[30px] rounded-[15px] flex flex-col justify-between">
                         <div className="relative w-full h-[200px]">
                             {
                                 article.image.url ? (

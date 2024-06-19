@@ -4,8 +4,9 @@ import { fetchDetailedCard, fetchLastCards } from "@/lib"
 import Link from "next/link"
 import { BiChevronLeft, BiChevronRight, BiUser } from "react-icons/bi"
 
-export default async function DetailedCard({ searchParams }: { searchParams: { id: string } }) {
-    const { id } = searchParams
+export default async function DetailedCard({ params: { id } }: {
+    params: { id: string }
+}) {
     const inbox = await fetchDetailedCard(id)
     const { inboxes } = await fetchLastCards()
     return (

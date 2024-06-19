@@ -1,19 +1,32 @@
 import Date from "@/components/dateShow";
 import DisqusComment from "@/components/disqus-comments";
-import { fetchDetailedArticle } from "@/lib"
+import { fetchArticles, fetchDetailedArticle } from "@/lib";
 import parse from 'html-react-parser';
+import { Metadata } from "next";
+import { Oswald } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import { BiChevronLeft } from "react-icons/bi";
-import { Montserrat, Oswald } from "next/font/google";
 
 const oswald = Oswald({ subsets: ["latin"], weight: ['600', '700'] })
-const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '600'] })
 
-export default async function DetailedBlog({ searchParams }: {
-    searchParams: { slug: string }
+export async function generateMetadata({ params: { slug } }: {
+    params: { slug: string }
+}): Promise<Metadata> {
+    const { article } = await fetchDetailedArticle(slug)
+    return {
+        title: article.title,
+    }
+}
+
+export async function generateStaticParams() {
+    const { articles } = await fetchArticles()
+    return articles.map(({ slug }) => slug)
+}
+
+export default async function DetailedBlog({ params: { slug } }: {
+    params: { slug: string }
 }) {
-    const { slug } = searchParams
     const { article } = await fetchDetailedArticle(slug)
     return (
         <div className="w-[90%] lg:max-w-[900px] mx-auto">

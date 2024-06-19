@@ -23,13 +23,8 @@ export default function PaginationCard({ data, setItemOffset, itemOffset }) {
         <>
             <div className="card-container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-[10px] my-[40px] gap-y-[20px] 2xl:gap-x-[30px]">
                 {
-                    currentItems.map((card, index) => (
-                        <Link href={{
-                            pathname: `card/${card.id}`,
-                            query: {
-                                id: card.id
-                            }
-                        }} className="flex flex-col gap-[20px] bg-[#2F4DE4] px-[20px] py-[10px] rounded-[17px] text-white justify-between" key={index} >
+                    currentItems.map((card) => (
+                        <Link href={`/card/${card.id}`} className="flex flex-col gap-[20px] bg-[#2F4DE4] px-[20px] py-[10px] rounded-[17px] text-white justify-between" key={card.id} >
                             <div className="author flex items-center gap-[13px]">
                                 <div className="avatar bg-[#D9D9D9] p-[10px] rounded-[50%]">
                                     <BiUser color="black" />

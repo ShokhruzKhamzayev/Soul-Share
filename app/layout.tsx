@@ -3,11 +3,10 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Provider from "@/components/provider";
-import { Bounce, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Script from "next/script";
 import { g_analytics } from "@/constants";
 import NextTopLoader from "nextjs-toploader";
+import { GoogleAnalytics } from '@next/third-parties/google'
+import { Toaster } from 'sonner'
 
 const poppins = Poppins({ subsets: ["latin"], weight: ['400', '500', '600', '800'] });
 
@@ -28,34 +27,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Script src={`https://www.googletagmanager.com/gtag/js?id=${g_analytics}`} strategy="lazyOnload" />
-      <Script>{`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', '${g_analytics}');
-      `}</Script>
-      <head>
-        <meta name="yandex-verification" content="3374da3e0a5976b9" />
-        <meta name="google-site-verification" content="4Hu-5IwRuj911S7m7LAYDh4npv1BnRkb4U2UPBGYaTg" />
-      </head>
-      <body className={`${poppins.className} bg-[#F2F3FD] dark:bg-[#02030D] text-[#040720] dark:text-[#DFE2FB]`}>
+      <body className={`${poppins.className} bg-[#F2F3FD] relative dark:bg-[#02030D] text-[#040720] dark:text-[#DFE2FB]`}>
+        <GoogleAnalytics gaId={g_analytics} />
         <Provider>
           <NextTopLoader color="#2F4DE4" showSpinner={false} />
           <Header />
           <main>
-            <ToastContainer
-              position="top-right"
-              autoClose={3500}
-              newestOnTop={false}
-              closeOnClick
-              pauseOnHover={false}
-              draggable
-              transition={Bounce}
-            />
+            <Toaster />
             {children}
-          </main>
+          </main><div className="fixed bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div><div className="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
         </Provider>
       </body>
     </html>

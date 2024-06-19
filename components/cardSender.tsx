@@ -3,7 +3,7 @@ import Link from "next/link"
 import React from "react"
 import { useForm } from "react-hook-form"
 import { FaRightLong } from "react-icons/fa6"
-import { toast } from "react-toastify"
+import { toast } from "sonner"
 
 type FormValues = {
     message: string
