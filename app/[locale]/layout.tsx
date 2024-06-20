@@ -22,20 +22,27 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+  params: {
+    locale
+  }
+}: {
+  children: React.ReactNode,
+  params: {
+    locale: string
+  }
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.className} bg-[#F2F3FD] relative dark:bg-[#02030D] text-[#040720] dark:text-[#DFE2FB]`}>
         <GoogleAnalytics gaId={g_analytics} />
         <Provider>
           <NextTopLoader color="#2F4DE4" showSpinner={false} />
-          <Header />
+          <Header locale={locale} />
           <main>
             <Toaster />
             {children}
-          </main><div className="fixed bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div><div className="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
+          </main>
+          <div className="fixed z-[-10] bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div><div className="absolute z-[-10] bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
         </Provider>
       </body>
     </html>
