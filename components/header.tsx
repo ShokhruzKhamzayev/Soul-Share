@@ -7,7 +7,6 @@ import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import Image from "next/image";
 import logo_light from '../assets/logo.png'
-import TranslationProviderUsage from "./translationProviderUsage";
 
 export default function Header({ locale }: {
     locale: string

@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import React from 'react'
-import about_content from '../../assets/about.png'
+import about_content from '../../../assets/about.png'
 import { Metadata } from 'next'
-import ceo from '../../assets/director.png'
-import programmer from '../../assets/programmer.png'
+import ceo from '../../../assets/director.png'
+import programmer from '../../../assets/programmer.png'
 
 
 export default function AboutUs() {
