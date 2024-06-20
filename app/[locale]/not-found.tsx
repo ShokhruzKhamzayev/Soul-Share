@@ -1,7 +1,7 @@
 'use client'
 import Lottie from 'lottie-react'
 import React from 'react'
-import animation from '../assets/animation.json'
+import animation from '../../assets/animation.json'
 import Link from 'next/link'
 import { BiHome } from 'react-icons/bi'
 

@@ -7,8 +7,11 @@ import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import Image from "next/image";
 import logo_light from '../assets/logo.png'
+import TranslationProviderUsage from "./translationProviderUsage";
 
-export default function Header() {
+export default function Header({ locale }: {
+    locale: string
+}) {
     const [action, setAction] = useState(false)
     return (
         <div className="relative">
@@ -20,7 +23,7 @@ export default function Header() {
                 </div>
                 <div className="pages-theme flex items-center gap-[10px] md:gap-[40px]">
                     <nav className="hidden md:flex items-center gap-[42px]">
-                        <BurgerMenu setAction={setAction} />
+                        <BurgerMenu setAction={setAction} locale={locale} />
                     </nav>
                     <ThemeSwitcher />
                     <button className="block md:hidden" onClick={() => setAction(true)}>
@@ -32,7 +35,7 @@ export default function Header() {
                 <button className="closer" onClick={() => setAction(false)}>
                     <IoMdClose size={35} />
                 </button>
-                <BurgerMenu setAction={setAction} />
+                <BurgerMenu setAction={setAction} locale={locale} />
             </div>
         </div>
     )

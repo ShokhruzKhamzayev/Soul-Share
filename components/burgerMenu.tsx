@@ -1,8 +1,10 @@
+import initTranslations from "@/app/i18n";
 import Link from "next/link";
 import { BiPhoneCall } from "react-icons/bi";
 
-export default function BurgerMenu({ setAction }: {
-    setAction: Function
+export default function BurgerMenu({ setAction, locale }: {
+    setAction: Function,
+    locale: string
 }) {
     return (
         <>
