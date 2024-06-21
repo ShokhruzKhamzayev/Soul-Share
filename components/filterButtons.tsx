@@ -1,13 +1,15 @@
 'use client'
 
 import { useRouter } from "next/navigation"
+import { useState } from "react";
 import { useTranslation } from "react-i18next"
+import { useStore } from "zustand";
 
 export default function FilterButtons() {
     const router = useRouter()
     const { t } = useTranslation()
     function toLink(endPoint: string) {
-        router.push(`?lang=${endPoint}`)
+        router.push(`?lang=${endPoint}&r=1`)
     }
     return (
         <div className="flex items-center gap-[10px] md:gap-[30px] justify-center md:justify-start ">

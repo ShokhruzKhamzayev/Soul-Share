@@ -4,20 +4,20 @@ import HeroCards from "@/components/heroCards";
 
 type PageProps = {
     searchParams: {
-        lang: string
+        lang: string,
+        r: number
     },
     params: {
         locale: string
     }
 }
 
-export default function Home({ searchParams: { lang }, params: { locale } }: PageProps) {
+export default function Home({ searchParams: { lang, r }, params: { locale } }: PageProps) {
     return (
         <div className="custom-container">
-            <Hero locale={locale} lang={lang} />
-            {lang}
+            <Hero locale={locale} />
             <FilterButtons />
-            <HeroCards lang={lang} />
+            <HeroCards lang={lang} r={r} />
         </div>
     );
 }

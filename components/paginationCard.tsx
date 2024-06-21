@@ -6,23 +6,22 @@ import { BiChevronRight, BiUser } from "react-icons/bi"
 import Date from './dateShow';
 import { CardType } from '@/lib/index.t';
 
-export default function PaginationCard({ data }: {
-    data: CardType[]
+export default function PaginationCard({ data, r }: {
+    data: CardType[],
+    r: number
 }) {
     const [pageCount, setPageCount] = useState(0)
-    const [itemOffset, setItemOffset] = useState(0);
     const [currentItems, setCurrentItems] = useState<CardType[]>([])
     const itemsPerPage = 9
 
     useEffect(() => {
-        const endOffset = itemOffset + itemsPerPage;
-        setCurrentItems(data.slice(itemOffset, endOffset))
+        const endOffset = r + itemsPerPage;
+        setCurrentItems(data.slice(r, endOffset))
         setPageCount(Math.ceil(data.length / itemsPerPage));
-    }, [itemsPerPage, itemOffset, data])
+    }, [itemsPerPage, r, data])
 
     const handlePageClick = (event: any) => {
         const newOffset = (event.selected * itemsPerPage) % data.length;
-        setItemOffset(newOffset);
     };
     return (
         <>
@@ -30,11 +29,11 @@ export default function PaginationCard({ data }: {
                 {
                     currentItems.map((card) => (
                         <Link href={`/card/${card.id}`} className="flex flex-col gap-[20px] bg-[#2F4DE4] px-[20px] py-[10px] rounded-[17px] text-white justify-between" key={card.id} >
-                            <div className="author flex items-center gap-[13px]">
+                            <div className="author flex items-center justify-center gap-[13px]">
                                 <div className="avatar bg-[#D9D9D9] p-[10px] rounded-[50%]">
                                     <BiUser color="black" />
                                 </div>
-                                <span>user{card.id.slice(10)}</span>
+                                <span>user{card.id.slice(17)}</span>
                             </div>
                             <div className="content">
                                 <p className="line-clamp-5 text-[18px] text-gray-200">{card.message}</p>

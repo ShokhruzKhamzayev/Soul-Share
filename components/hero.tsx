@@ -1,20 +1,14 @@
+import initTranslations from "@/app/i18n";
 import Image from "next/image";
 import Link from "next/link";
 import hero_content from '../assets/main.png';
-import initTranslations from "@/app/i18n";
-import { fetchCardWithLang } from "@/lib";
-import { CardType } from "@/lib/index.t";
-import EmptyAnim from "./emptyBox";
-import PaginationCard from "./paginationCard";
 
 type PageProps = {
     locale: string,
-    lang: string
 }
 
-export default async function Hero({ locale, lang }: PageProps) {
+export default async function Hero({ locale }: PageProps) {
     const { t } = await initTranslations(locale, ['main'])
-    
     return (
         <div>
             <div className="flex justify-between items-center flex-col lg:flex-row mt-[50px] gap-[20px] lg:gap-0">

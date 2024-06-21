@@ -3,10 +3,8 @@ import Link from "next/link";
 import logo_light from '../assets/logo.png';
 import ThemeSwitcher from "./ThemeSwitcher";
 import BurgerMenu from "./burgerMenu";
-import NavPhone from "./navPhone";
-import TranslationsProvider from "./translationProvider";
-import initTranslations from "@/app/i18n";
 import LanguageChanger from "./langChanger";
+import NavPhone from "./navPhone";
 
 export default async function Header({ locale }: {
     locale: string

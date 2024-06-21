@@ -4,8 +4,9 @@ import PaginationCard from './paginationCard'
 import { fetchCardWithLang } from '@/lib'
 import { CardType } from '@/lib/index.t'
 
-export default async function HeroCards({ lang }: {
-    lang: string
+export default async function HeroCards({ lang, r }: {
+    lang: string,
+    r: number
 }) {
     async function getNeededCard(): Promise<CardType[]> {
         if (lang === 'all' || lang === undefined) {
@@ -22,7 +23,7 @@ export default async function HeroCards({ lang }: {
             {
                 inboxes.length < 1 ?
                     <EmptyAnim /> :
-                    <PaginationCard data={inboxes} />
+                    <PaginationCard data={inboxes} r={r}  />
             }
         </div>
     )
