@@ -35,7 +35,7 @@ export default async function RootLayout({
 }) {
   const { resources } = await initTranslations(locale, ['nav', 'main', 'buttons', 'about'])
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body className={`${poppins.className} bg-[#F2F3FD] relative dark:bg-[#02030D] text-[#040720] dark:text-[#DFE2FB]`}>
         <GoogleAnalytics gaId={g_analytics} />
         <TranslationsProvider resources={resources} locale={locale} namespaces={['nav', 'buttons', 'main', 'about']}>

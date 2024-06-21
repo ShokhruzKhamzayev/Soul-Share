@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { BiPhoneCall } from 'react-icons/bi'
 import { FaBars } from 'react-icons/fa'
 import { IoMdClose } from 'react-icons/io'
+import LanguageChanger from './langChanger'
 
 export default function NavPhone() {
     const [action, setAction] = useState(false)
@@ -25,6 +26,7 @@ export default function NavPhone() {
                 <Link href={'/contact'} onClick={() => setAction(false)} className="flex items-center gap-[5px] text-[20px] md:text-[17px]">{t('contact')}
                     <BiPhoneCall size={28} />
                 </Link>
+                <LanguageChanger />
             </div>
         </>
     )

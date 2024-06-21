@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import i18nConfig from '@/i18nConfig';
 
 export default function LanguageChanger() {
+    const { t } = useTranslation()
     const { i18n } = useTranslation();
     const currentLocale = i18n.language;
     const router = useRouter();
@@ -38,10 +39,10 @@ export default function LanguageChanger() {
     };
 
     return (
-        <select onChange={handleChange} value={currentLocale}>
-            <option value="en">English</option>
-            <option value="ru">Russian</option>
-            <option value="uz">Uzbek</option>
+        <select onChange={handleChange} value={currentLocale} className='border-[2px] border-[#2F4DE4] dark:border-yellow-200 rounded-[8px] py-[7px] px-[15px]'>
+            <option value="en">{t("buttons:en")}</option>
+            <option value="ru">{t("buttons:ru")}</option>
+            <option value="uz">{t("buttons:uz")}</option>
         </select>
     );
 }

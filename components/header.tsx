@@ -22,7 +22,9 @@ export default async function Header({ locale }: {
                         <BurgerMenu locale={locale} />
                     </nav>
                     <ThemeSwitcher />
-                    <LanguageChanger />
+                    <div className="hidden md:block">
+                        <LanguageChanger />
+                    </div>
                     <NavPhone />
                 </div>
             </div>
