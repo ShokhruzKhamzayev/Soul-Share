@@ -19,7 +19,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'Shokhrux', url: 'https://nextjs.org' }, { name: 'Jamshidbek' }],
   category: 'Sharing is Caring, sharing, cards, advices',
   publisher: 'Shokhruz',
-  creator: 'Shokhruz'
+  creator: 'Shokhruz',
+  verification: {
+    yandex: '15bdd7be65c59bd2',
+    google: '4Hu-5IwRuj911S7m7LAYDh4npv1BnRkb4U2UPBGYaTg'
+  }
 };
 
 export default async function RootLayout({
