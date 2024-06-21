@@ -1,5 +1,5 @@
 import { GraphQLClient, gql } from 'graphql-request'
-import { ALlArticles, DetailedProps, LangDataProps, singleArticle } from './index.t'
+import { CardType, article, detailedCard } from './index.t'
 import { Hygraph_endpoint } from '@/constants'
 
 export const graphlqlClient = new GraphQLClient(Hygraph_endpoint)
@@ -16,7 +16,7 @@ export async function fetchCardWithLang(lang?: string, isAll?: boolean) {
         }
     `
 
-    const langData = await graphlqlClient.request<LangDataProps>(query)
+    const langData = await graphlqlClient.request<{ inboxes: CardType[] }>(query)
     return langData
 }
 
@@ -30,7 +30,7 @@ export async function fetchDetailedCard(id: string) {
                 }
             }
     `
-    const { inbox } = await graphlqlClient.request<DetailedProps>(query)
+    const { inbox } = await graphlqlClient.request<{ inbox: detailedCard }>(query)
     return inbox
 }
 
@@ -59,7 +59,7 @@ export async function fetchLastCards() {
         }
     `
 
-    const latestCards = await graphlqlClient.request<LangDataProps>(query)
+    const latestCards = await graphlqlClient.request<{ inboxes: CardType[] }>(query)
     return latestCards
 }
 
@@ -80,7 +80,7 @@ export async function fetchArticles() {
         }
     `
 
-    const articlesData = await graphlqlClient.request<ALlArticles>(query)
+    const articlesData = await graphlqlClient.request<{ articles: article[] }>(query)
     return articlesData
 }
 
@@ -111,7 +111,7 @@ export async function fetchDetailedArticle(slug: string) {
         }
     `
 
-    const detailedArticle = await graphlqlClient.request<singleArticle>(query)
+    const detailedArticle = await graphlqlClient.request<{ article: article }>(query)
     return detailedArticle
 }
 
@@ -125,6 +125,6 @@ export async function fetchCardWithLangForSitemap() {
         }
     `
 
-    const langData = await graphlqlClient.request<LangDataProps>(query)
+    const langData = await graphlqlClient.request<{ inboxes: CardType[] }>(query)
     return langData
 }

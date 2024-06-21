@@ -1,9 +1,23 @@
-import Options from "@/components/options";
+import FilterButtons from "@/components/filterButtons";
+import Hero from "@/components/hero";
+import HeroCards from "@/components/heroCards";
 
-export default function Home() {
+type PageProps = {
+    searchParams: {
+        lang: string,
+        r: number
+    },
+    params: {
+        locale: string
+    }
+}
+
+export default function Home({ searchParams: { lang, r }, params: { locale } }: PageProps) {
     return (
         <div className="custom-container">
-            <Options />
+            <Hero locale={locale} />
+            <FilterButtons />
+            <HeroCards lang={lang} r={r} />
         </div>
     );
 }

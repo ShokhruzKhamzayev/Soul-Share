@@ -7,8 +7,10 @@ import parse from 'html-react-parser';
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Oswald, Montserrat } from "next/font/google";
+import { Metadata } from "next";
 
 const oswald = Oswald({ subsets: ["latin"], weight: ['400', '500', '600'] })
+
 
 export default function ResourcesPage() {
     const [allArticles, setAllArticles] = useState<article[]>([])

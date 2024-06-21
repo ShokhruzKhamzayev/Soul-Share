@@ -1,17 +1,14 @@
-'use client'
+import Image from "next/image";
 import Link from "next/link";
-import { FaBars } from "react-icons/fa";
+import logo_light from '../assets/logo.png';
 import ThemeSwitcher from "./ThemeSwitcher";
 import BurgerMenu from "./burgerMenu";
-import { useState } from "react";
-import { IoMdClose } from "react-icons/io";
-import Image from "next/image";
-import logo_light from '../assets/logo.png'
+import LanguageChanger from "./langChanger";
+import NavPhone from "./navPhone";
 
-export default function Header({ locale }: {
+export default async function Header({ locale }: {
     locale: string
 }) {
-    const [action, setAction] = useState(false)
     return (
         <div className="relative">
             <div className="custom-container flex justify-between items-center py-[25px]">
@@ -22,19 +19,14 @@ export default function Header({ locale }: {
                 </div>
                 <div className="pages-theme flex items-center gap-[10px] md:gap-[40px]">
                     <nav className="hidden md:flex items-center gap-[42px]">
-                        <BurgerMenu setAction={setAction} locale={locale} />
+                        <BurgerMenu locale={locale} />
                     </nav>
                     <ThemeSwitcher />
-                    <button className="block md:hidden" onClick={() => setAction(true)}>
-                        <FaBars size={32} />
-                    </button>
+                    <div className="hidden md:block">
+                        <LanguageChanger />
+                    </div>
+                    <NavPhone />
                 </div>
-            </div>
-            <div className={`nav-phone block md:hidden ${action ? 'active' : 'disactive'} bg-[#F2F3FD] dark:bg-[#02030D] min-h-screen overflow-hidden`}>
-                <button className="closer" onClick={() => setAction(false)}>
-                    <IoMdClose size={35} />
-                </button>
-                <BurgerMenu setAction={setAction} locale={locale} />
             </div>
         </div>
     )
