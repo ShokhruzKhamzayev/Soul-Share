@@ -1,12 +1,17 @@
+'use client'
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import Link from "next/link"
 import { BiChevronRight, BiUser } from "react-icons/bi"
 import Date from './dateShow';
+import { CardType } from '@/lib/index.t';
 
-export default function PaginationCard({ data, setItemOffset, itemOffset }) {
+export default function PaginationCard({ data }: {
+    data: CardType[]
+}) {
     const [pageCount, setPageCount] = useState(0)
-    const [currentItems, setCurrentItems] = useState([])
+    const [itemOffset, setItemOffset] = useState(0);
+    const [currentItems, setCurrentItems] = useState<CardType[]>([])
     const itemsPerPage = 9
 
     useEffect(() => {
@@ -15,7 +20,7 @@ export default function PaginationCard({ data, setItemOffset, itemOffset }) {
         setPageCount(Math.ceil(data.length / itemsPerPage));
     }, [itemsPerPage, itemOffset, data])
 
-    const handlePageClick = (event) => {
+    const handlePageClick = (event: any) => {
         const newOffset = (event.selected * itemsPerPage) % data.length;
         setItemOffset(newOffset);
     };

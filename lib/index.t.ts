@@ -11,13 +11,6 @@ export interface detailedCard {
     updatedAt: string
 }
 
-export interface LangDataProps {
-    inboxes: CardType[]
-}
-
-export interface DetailedProps {
-    inbox: detailedCard
-}
 
 export interface article {
     id: string,
@@ -44,12 +37,4 @@ export interface article {
     }
     message: "article of Mental Health Resources"
     language: 'en_EN'
-}
-
-export interface ALlArticles {
-    articles: article[]
-}
-
-export interface singleArticle {
-    article: article
 }

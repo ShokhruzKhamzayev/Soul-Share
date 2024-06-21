@@ -7,6 +7,8 @@ import { g_analytics } from "@/constants";
 import NextTopLoader from "nextjs-toploader";
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Toaster } from 'sonner'
+import TranslationsProvider from "@/components/translationProvider";
+import initTranslations from "../i18n";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ['400', '500', '600', '800'] });
 
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
   creator: 'Shokhruz'
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params: {
     locale
@@ -31,19 +33,22 @@ export default function RootLayout({
     locale: string
   }
 }) {
+  const { resources } = await initTranslations(locale, ['nav', 'main', 'buttons', 'about'])
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.className} bg-[#F2F3FD] relative dark:bg-[#02030D] text-[#040720] dark:text-[#DFE2FB]`}>
         <GoogleAnalytics gaId={g_analytics} />
-        <Provider>
-          <NextTopLoader color="#2F4DE4" showSpinner={false} />
-          <Header locale={locale} />
-          <main>
-            <Toaster />
-            {children}
-          </main>
-          <div className="fixed z-[-10] bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div><div className="absolute z-[-10] bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
-        </Provider>
+        <TranslationsProvider resources={resources} locale={locale} namespaces={['nav', 'buttons', 'main', 'about']}>
+          <Provider>
+            <NextTopLoader color="#2F4DE4" showSpinner={false} />
+            <Header locale={locale} />
+            <main>
+              <Toaster />
+              {children}
+            </main>
+            <div className="fixed z-[-10] bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div><div className="absolute z-[-10] bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
+          </Provider>
+        </TranslationsProvider>
       </body>
     </html>
   );
