@@ -37,7 +37,7 @@ export default async function RootLayout({
     locale: string
   }
 }) {
-  const { resources } = await initTranslations(locale, ['nav', 'main', 'buttons', 'about'])
+  const { resources } = await initTranslations(locale, ['nav', 'main', 'buttons', 'about', 'contact'])
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${poppins.className} bg-[#F2F3FD] relative dark:bg-[#02030D] text-[#040720] dark:text-[#DFE2FB]`}>
