@@ -1,5 +1,5 @@
 'use client'
-import { detailedCard, singleArticle } from "@/lib/index.t";
+import { detailedCard } from "@/lib/index.t";
 import { DiscussionEmbed } from "disqus-react";
 
 export default function DisqusComment({ card, id }: {

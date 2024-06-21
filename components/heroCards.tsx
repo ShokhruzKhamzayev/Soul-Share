@@ -23,7 +23,7 @@ export default async function HeroCards({ lang, r }: {
             {
                 inboxes.length < 1 ?
                     <EmptyAnim /> :
-                    <PaginationCard data={inboxes} r={r}  />
+                    <PaginationCard data={inboxes} lang={lang} />
             }
         </div>
     )

@@ -6,22 +6,28 @@ import { BiChevronRight, BiUser } from "react-icons/bi"
 import Date from './dateShow';
 import { CardType } from '@/lib/index.t';
 
-export default function PaginationCard({ data, r }: {
+export default function PaginationCard({ data, lang }: {
     data: CardType[],
-    r: number
+    lang: string
 }) {
+    const [itemOffset, setItemOffset] = useState(0)
     const [pageCount, setPageCount] = useState(0)
     const [currentItems, setCurrentItems] = useState<CardType[]>([])
     const itemsPerPage = 9
 
     useEffect(() => {
-        const endOffset = r + itemsPerPage;
-        setCurrentItems(data.slice(r, endOffset))
+        setItemOffset(0)
+    }, [lang])
+
+    useEffect(() => {
+        const endOffset = itemOffset + itemsPerPage;
+        setCurrentItems(data.slice(itemOffset, endOffset))
         setPageCount(Math.ceil(data.length / itemsPerPage));
-    }, [itemsPerPage, r, data])
+    }, [itemsPerPage, itemOffset, data])
 
     const handlePageClick = (event: any) => {
         const newOffset = (event.selected * itemsPerPage) % data.length;
+        setItemOffset(newOffset)
     };
     return (
         <>
