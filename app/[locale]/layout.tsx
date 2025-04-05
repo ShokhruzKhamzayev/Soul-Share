@@ -3,7 +3,6 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Provider from "@/components/provider";
-import { g_analytics } from "@/constants";
 import NextTopLoader from "nextjs-toploader";
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Toaster } from 'sonner'
