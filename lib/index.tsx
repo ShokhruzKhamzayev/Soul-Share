@@ -1,8 +1,7 @@
 import { GraphQLClient, gql } from 'graphql-request'
 import { CardType, article, detailedCard } from './index.t'
-import { Hygraph_endpoint } from '@/constants'
 
-export const graphlqlClient = new GraphQLClient(Hygraph_endpoint)
+export const graphlqlClient = new GraphQLClient(process.env.NEXT_PUBLIC_Hygraph_endpoint!)
 
 export async function fetchCardWithLang(lang?: string, isAll?: boolean) {
     const query = gql`

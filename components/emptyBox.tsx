@@ -1,3 +1,5 @@
+'use client'
+
 import Lottie from 'lottie-react'
 import animation from '../assets/empty_anim.json'
 
