@@ -41,7 +41,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${poppins.className} bg-[#F2F3FD] relative dark:bg-[#02030D] text-[#040720] dark:text-[#DFE2FB]`}>
-        <GoogleAnalytics gaId={g_analytics} />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_g_analytics!} />
         <TranslationsProvider resources={resources} locale={locale} namespaces={['nav', 'buttons', 'main', 'about']}>
           <Provider>
             <NextTopLoader color="#2F4DE4" showSpinner={false} />
