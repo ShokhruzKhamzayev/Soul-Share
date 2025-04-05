@@ -32,8 +32,8 @@ export default async function AboutUs({ params: { locale } }: {
             <div>
                 <h1 className='dark:text-yellow-200 text-[#2F4DE4] text-3xl md:text-5xl text-center mb-[25px] mt-[15px] font-bold'>{t("head_auth")}</h1>
                 <div className='flex justify-center items-center gap-[20px] md:gap-[30px] flex-col md:flex-row pb-[20px]'>
-                    <AboutAuthor src={ceo} jobTitle={t("ceo")} nameAuthor='Rasulov Jamshidbek' />
-                    <AboutAuthor src={programmer} jobTitle={t("dev")} nameAuthor='Khamzayev Shokhruzbek' />
+                    <AboutAuthor src={ceo} link={'https://t.me/Rasulov_Jamshidbek'} jobTitle={'Co-Founder'} nameAuthor='Rasulov Jamshidbek' />
+                    <AboutAuthor src={programmer} link={'https://khamzayev.uz'} jobTitle={`Co-Founder & Web Developer / Designer`} nameAuthor='Xamzayev Shaxruzbek' />
                 </div>
             </div>
         </div>
@@ -47,16 +47,19 @@ export const metadata: Metadata = {
     category: 'About Us'
 }
 
-function AboutAuthor({ nameAuthor, jobTitle, src }: {
+function AboutAuthor({ nameAuthor, jobTitle, src, link }: {
     nameAuthor: string,
     jobTitle: string,
-    src: any
+    src: any,
+    link: string
 }) {
     return (
         <div className='border-[2px] rounded-[12px]  border-[#2F4DE4] dark:border-yellow-200 py-[10px] px-[20px] pb-[10px] shadow-lg shadow-[#2F4DE4] dark:shadow-yellow-200'>
             <Image src={src} alt={`photo of ${nameAuthor}`} className='w-full h-[300px] object-contain lg:h-[400px] rounded-[15px]' />
             <div>
-                <h1 className='text-center dark:text-yellow-200 text-[#2F4DE4] text-xl lg:text-3xl my-[25px] font-medium'>{nameAuthor}</h1>
+                <a href={link} target='_blank'>
+                    <h1 className='text-center dark:text-yellow-200 text-[#2F4DE4] text-xl lg:text-3xl my-[25px] font-medium'>{nameAuthor}</h1>
+                </a>
                 <p className='text-center text-[17px] font-semibold'>{jobTitle}</p>
             </div>
         </div>
