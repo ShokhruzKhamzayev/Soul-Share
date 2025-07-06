@@ -1,14 +1,12 @@
-import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
-import "./globals.css";
 import Header from "@/components/header";
 import Provider from "@/components/provider";
-import { g_analytics } from "@/constants";
-import NextTopLoader from "nextjs-toploader";
-import { GoogleAnalytics } from '@next/third-parties/google'
-import { Toaster } from 'sonner'
 import TranslationsProvider from "@/components/translationProvider";
+import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
+import NextTopLoader from "nextjs-toploader";
+import { Toaster } from 'sonner';
 import initTranslations from "../i18n";
+import "./globals.css";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ['400', '500', '600', '800'] });
 
@@ -41,7 +39,6 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${poppins.className} bg-[#F2F3FD] relative dark:bg-[#02030D] text-[#040720] dark:text-[#DFE2FB]`}>
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_g_analytics!} />
         <TranslationsProvider resources={resources} locale={locale} namespaces={['nav', 'buttons', 'main', 'about']}>
           <Provider>
             <NextTopLoader color="#2F4DE4" showSpinner={false} />
